@@ -26,14 +26,22 @@ void print_formatted(char format, va_list args)
 		case 's':
 			print_str(va_arg(args, char*));
 			break;
+		case 'b':
+			print_base_x(va_arg(args, int), 2);
+			break;
+
+		case 'o':
+			print_base_x(va_arg(args, int), 8);
+			break;
 
 		case 'x':
-			print_hex(va_arg(args, int), 'x');
+			print_base_x(va_arg(args, int), 16, 'x');
 			break;
 
 		case 'X':
-			print_hex(va_arg(args, int), 'X');
+			print_base_x(va_arg(args, int), 16, 'X');
 			break;
+
 		default:
 			_putchar(format);
 	}
