@@ -1,11 +1,15 @@
 #ifndef PRINTF_HELPERS_H
 #define PRINTF_HELPERS_H
+
 #include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 struct info
 {
-    char *type; 
-    int ret; 
+    char *type;
+    int ret;
 };
 
 struct FLOAT
@@ -17,7 +21,7 @@ struct FLOAT
 typedef struct FLOAT FLOAT;
 
 int raise(int, int);
-void print(char* template, ...);
+void _printf(char* template, ...);
 void print_int(int a);
 void print_float(FLOAT *f);
 FLOAT *dissect_float(float f, int precision);
@@ -25,5 +29,6 @@ int count_exponent(int number, int exponent);
 void print_str(char *s);
 void print_hex(int num, char format);
 void print_formatted(char format, va_list args);
+int _putchar(char c);
 
 #endif 
