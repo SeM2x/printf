@@ -1,7 +1,3 @@
-//
-// Created by bader on 14/10/23.
-//
-
 #include "helpers.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -96,7 +92,7 @@ int raise(int n, int exp)
 }
 
 
-print_formatted(char format, va_list args)
+void print_formatted(char format, va_list args)
 {
     switch(format)
     {

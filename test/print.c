@@ -6,7 +6,9 @@
 /* int (*raise)(int, int) = pow; */
 int main(void)
 {
-    print("%s is usually the first thing you learn in day %d!=%c, %f", "hello, world!", 1, '\n', 3.14);
+    /* print("%s is usually the first thing you learn in day %d!=%c, %f", "hello, world!", 1, '\n', 3.14); */
+		print("%s %d %f \n %c", "sdsd", 12, 2.4444, 'c');
+		return (0);
 }
 
 
