@@ -1,36 +1,40 @@
 #include <stdarg.h>
 #include <stdio.h>
-#include "helpers.h"
+#include "main.h"
 
 
 int main(void)
 {
-    print("%s %% %d", "hi", 4);
-		return (0);
+	print("%s %% %d", "hi", 4);
+	return (0);
 }
 
 
-void print(char* template, ...)
+/**
+ * print -our own printf
+ * @template: str, template according to which we print the args
+ */
+void print(char *template, ...)
 {
-    va_list args;
-    int current_letter;
+	va_list args;
+	int current_letter;
 
-    va_start(args, template);
+	va_start(args, template);
 
-    current_letter = 0;
+	current_letter = 0;
 
 
-    for (; template[current_letter] != 0; current_letter++)
-    {
-       switch(template[current_letter])
-       {
-           case '%':
-               print_formatted(template[current_letter+1], args);
-               current_letter++;
-               break;
+	for (; template[current_letter] != 0; current_letter++)
+	{
+		switch (template[current_letter])
+		{
+			case '%':
+				print_formatted(template[current_letter + 1], args);
+				current_letter++;
+				break;
 
-           default:
-               putchar(template[current_letter]);
-       }
-    }
+			default:
+				putchar(template[current_letter]);
+		}
+	}
 }
