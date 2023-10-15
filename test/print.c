@@ -5,8 +5,8 @@
 
 int main(void)
 {
-	print("%s %% %d", "hi", 4);
-	return (0);
+    print("hi %X \n", 489);
+		return (0);
 }
 
 

@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 /**
  * print_int - print an int using _putchar
@@ -132,6 +132,38 @@ int raise(int n, int exp)
 	return (raise(n, exp - 1) * n);
 }
 
+/**
+ * print_hex - print int as hex
+ * @n: num in decimal
+ * @format: x or X
+ * Return: nothing
+*/
+void print_hex(int num, char format)
+{
+
+    char mod;
+    char *hexchars;
+    if (format == 'x')
+	    hexchars = strdup("abcdef");
+    else if (format == 'X')
+	    hexchars = strdup("ABCDEF");
+    else
+	    exit(1);
+    if (num < 16)
+    {
+	if (num > 9)
+		mod = hexchars[num - 10];
+	else
+		mod = num % 16 + '0';
+
+        putchar(mod);
+    }
+    else
+    {
+        print_hex(num / 16, format);
+        print_hex(num % 16, format);
+    }   
+}
 
 /**
  * print_formatted - print arg according to format
@@ -160,7 +192,14 @@ void print_formatted(char format, va_list args)
 			print_str(va_arg(args, char*));
 			break;
 
-		default:
-			putchar(format);
+		case 'x':
+			print_hex(va_arg(args, int), 'x');
+			break;
+
+		case 'X':
+			print_hex(va_arg(args, int), 'X');
+			break;
+			default:
+				putchar(format);
 	}
 }

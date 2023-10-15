@@ -23,6 +23,7 @@ void print_float(FLOAT *f);
 FLOAT *dissect_float(float f, int precision);
 int count_exponent(int number, int exponent);
 void print_str(char *s);
+void print_hex(int num, char format);
 void print_formatted(char format, va_list args);
 
 #endif 
