@@ -91,6 +91,42 @@ int raise(int n, int exp)
     return (raise(n, exp - 1) * n);
 }
 
+void print_hex(int num)
+{
+    char mod;
+    if (num < 16)
+    {
+        switch(num)
+        {
+            case 10:
+                mod = 'a';
+                break;
+            case 11:
+                mod = 'b';
+                break;
+            case 12:
+                mod = 'c';
+                break;            
+            case 13:
+                mod = 'd';
+                break;                
+            case 14:
+                mod = 'e';
+                break;
+            case 15:
+                mod = 'f';
+                break;
+            default:
+                mod = num % 16 + '0';
+        }
+        putchar(mod);
+    }
+    else
+    {
+        print_hex(num / 16);
+        print_hex(num % 16);
+    }   
+}
 
 void print_formatted(char format, va_list args)
 {
@@ -111,7 +147,9 @@ void print_formatted(char format, va_list args)
         case 's':
             print_str(va_arg(args, char*));
             break;
-
+	case 'x':
+	    print_hex(va_arg(args, int));
+	    break;
         default:
             putchar(format);
     }
