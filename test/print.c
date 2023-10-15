@@ -3,11 +3,9 @@
 #include "helpers.h"
 
 
-/* int (*raise)(int, int) = pow; */
 int main(void)
 {
-    /* print("%s is usually the first thing you learn in day %d!=%c, %f", "hello, world!", 1, '\n', 3.14); */
-		print("%s %d %f \n %c", "sdsd", 12, 2.4444, 'c');
+    print("%s %% %d", "hi", 4);
 		return (0);
 }
 
@@ -28,11 +26,6 @@ void print(char* template, ...)
        {
            case '%':
                print_formatted(template[current_letter+1], args);
-               current_letter++;
-               break;
-
-           case '\\':
-               putchar(template[current_letter]);
                current_letter++;
                break;
 

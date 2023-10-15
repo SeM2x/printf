@@ -113,6 +113,6 @@ void print_formatted(char format, va_list args)
             break;
 
         default:
-            putchar(va_arg(args, int));
+            putchar(format);
     }
 }
