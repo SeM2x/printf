@@ -1,7 +1,7 @@
 #include "helpers.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 void print_int(int n)
 {
@@ -91,40 +91,30 @@ int raise(int n, int exp)
     return (raise(n, exp - 1) * n);
 }
 
-void print_hex(int num)
+void print_hex(int num, char format)
 {
+
     char mod;
+    char *hexchars;
+    if (format == 'x')
+	    hexchars = strdup("abcdef");
+    else if (format == 'X')
+	    hexchars = strdup("ABCDEF");
+    else
+	    exit(1);
     if (num < 16)
     {
-        switch(num)
-        {
-            case 10:
-                mod = 'a';
-                break;
-            case 11:
-                mod = 'b';
-                break;
-            case 12:
-                mod = 'c';
-                break;            
-            case 13:
-                mod = 'd';
-                break;                
-            case 14:
-                mod = 'e';
-                break;
-            case 15:
-                mod = 'f';
-                break;
-            default:
+	if (num > 9)
+		mod = hexchars[num - 10];
+	else
                 mod = num % 16 + '0';
-        }
+
         putchar(mod);
     }
     else
     {
-        print_hex(num / 16);
-        print_hex(num % 16);
+        print_hex(num / 16, format);
+        print_hex(num % 16, format);
     }   
 }
 
@@ -148,7 +138,10 @@ void print_formatted(char format, va_list args)
             print_str(va_arg(args, char*));
             break;
 	case 'x':
-	    print_hex(va_arg(args, int));
+	    print_hex(va_arg(args, int), 'x');
+	    break;
+	case 'X':
+	    print_hex(va_arg(args, int), 'X');
 	    break;
         default:
             putchar(format);

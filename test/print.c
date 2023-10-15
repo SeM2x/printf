@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    print("hi %x \n", 489);
+    print("hi %X \n", 489);
 		return (0);
 }
 
