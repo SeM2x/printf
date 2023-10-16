@@ -3,9 +3,11 @@
 /**
  * print -our own printf
  * @template: str, template according to which we print the args
+ *
+ * Return: number of chars printed.
  */
 
-void _printf(char *template, ...)
+int _printf(char *template, ...)
 {
 	va_list args;
 	int current_letter;
@@ -13,7 +15,6 @@ void _printf(char *template, ...)
 	va_start(args, template);
 
 	current_letter = 0;
-
 
 	for (; template[current_letter] != 0; current_letter++)
 	{
@@ -28,4 +29,6 @@ void _printf(char *template, ...)
 				_putchar(template[current_letter]);
 		}
 	}
+
+	return (current_letter);
 }

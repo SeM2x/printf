@@ -7,7 +7,7 @@
  * 
  *Return: Void.
  */
-void print_base_x(int num, int base, ...)
+void print_base_x(unsigned int num, unsigned int base, ...)
 {
 	va_list args;
 	char mod, *hexchars, format;
