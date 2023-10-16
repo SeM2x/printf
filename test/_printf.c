@@ -10,25 +10,27 @@
 int _printf(char *template, ...)
 {
 	va_list args;
-	int current_letter;
+	int current_letter, len;
 
 	va_start(args, template);
 
 	current_letter = 0;
+	len = 0;
 
 	for (; template[current_letter] != 0; current_letter++)
 	{
 		switch (template[current_letter])
 		{
 			case '%':
-				print_formatted(template[current_letter + 1], args);
+				len += print_formatted(template[current_letter + 1], args);
 				current_letter++;
 				break;
 
 			default:
 				_putchar(template[current_letter]);
+				len += 1;
 		}
 	}
 
-	return (current_letter);
+	return (len);
 }

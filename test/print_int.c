@@ -1,35 +1,24 @@
 #include "main.h"
+
 /**
- * print_int - print an int using __putchar
- * @n: the int
- * Return: nothing
+ *print_int - prints int using _putchar
+ *@n: the int
+ *
+ *Return: number of printed chars.
  */
-
-void print_int(int n)
+int print_int(int n)
 {
-	int lvl, tmp_n, i;
-
 	if (n < 0)
 	{
-		n = -n;
 		_putchar('-');
+		return (1 + print_int(-n));
 	}
 
-	tmp_n = n;
-
-	lvl = count_exponent(n, 10);
-
-	for (i = 0; i < lvl; i++)
+	if (n < 10)
 	{
-		tmp_n = n;
-		tmp_n /= (int) raise(10, lvl - i);
-
-		_putchar(tmp_n + '0');
-
-		tmp_n *= (int) raise(10, lvl - i);
-		n -= tmp_n;
+		_putchar(n + '0');
+		return (1);
 	}
 
-	_putchar(n + '0');
+	return (print_int(n / 10) + print_int(n % 10));
 }
-

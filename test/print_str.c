@@ -1,16 +1,24 @@
 #include "main.h"
 
 /**
- * print_str - print a char *str
- * @s: the string pointer (char pointer)
- * Return: nothing
+ *print_str - print a char *str
+ *@s: the string pointer (char pointer)
+ *
+ *Return: the number of printed characters.
  */
-
-void print_str(char *s)
+int print_str(char *s)
 {
+	int len;
+
+	len = 0;
 	if (!s)
-		return;
+		return (0);
 
 	for (; *s; s++)
+	{
 		_putchar(*s);
+		len++;
+	}
+
+	return (len);
 }

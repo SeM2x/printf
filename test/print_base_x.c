@@ -4,10 +4,10 @@
  *print_base_x - print int as base X.
  *@num: number in decimal.
  *@base: the base to print num in.
- * 
- *Return: Void.
+ *
+ *Return: number of printed chars.
  */
-void print_base_x(unsigned int num, unsigned int base, ...)
+int print_base_x(unsigned int num, unsigned int base, ...)
 {
 	va_list args;
 	char mod, *hexchars, format;
@@ -16,14 +16,12 @@ void print_base_x(unsigned int num, unsigned int base, ...)
 	if (base == 16)
 	{
 		format = va_arg(args, int);
-		if (format == 'x')
-			hexchars = strdup("abcdef");
-		else if (format == 'X')
+		if (format == 'X')
 			hexchars = strdup("ABCDEF");
 		else
-			exit(1);
+			hexchars = strdup("abcdef");
 	}
-	
+
 	if (num < base)
 	{
 		if (base == 16 && num > 9)
@@ -31,13 +29,13 @@ void print_base_x(unsigned int num, unsigned int base, ...)
 		else
 			mod = num % base + '0';
 		_putchar(mod);
+		return (1);
 	}
-	
-	else
-	{
-		print_base_x(num / base, base, format);
-		print_base_x(num % base, base, format);
-	}
+
+	return (
+		print_base_x(num / base, base, format) +
+		print_base_x(num % base, base, format)
+	);
 
 	va_end(args);
 }
