@@ -10,11 +10,11 @@
 
 int  print_formatted(char format, va_list args)
 {
-	int len;
-
-	len = 0;
 	switch (format)
 	{
+		case '%':
+			_putchar('%');
+			return (1);
 		case 'c':
 			_putchar(va_arg(args, int));
 			return (1);
@@ -47,13 +47,8 @@ int  print_formatted(char format, va_list args)
 			return (print_base_x(va_arg(args, unsigned int), 16, 'X'));
 
 		default:
-
-			if (format != '%')
-			{
-				_putchar('%');
-				len++;
-			}
+			_putchar('%');
 			_putchar(format);
-			return (len + 1);
+			return (2);
 	}
 }

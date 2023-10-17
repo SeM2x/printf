@@ -10,9 +10,12 @@
 int main(void)
 {
 
-	_printf("%%%\n");
 	_printf("%");
 	_printf("%!\n");
 	_printf("%K\n");
+	_printf("====\n");	
+	printf("%");
+	printf("%!\n");
+	printf("%K\n");
 	return (0);
 }
