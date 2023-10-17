@@ -9,11 +9,11 @@
  */
 int main(void)
 {
-
+	_printf("%s%c%c%c%s%%%s%c", "Loading", '.', '.', '.', "99", "Please wait", '\n');
+	_printf("%%\n");
 	_printf("%");
-	_printf("%!\n");
-	_printf("%K\n");
-	_printf("====\n");	
+	_printf("====\n");
+	printf("%s%c%c%c%s%%%s%c", "Loading", '.', '.', '.', "99", "Please wait", '\n');
 	printf("%");
 	printf("%!\n");
 	printf("%K\n");
