@@ -10,15 +10,9 @@
 
 int main(void)
 {
-	int len;
-
-	/* len = printf("%p\n", NULL); */
-	/* printf("%d\n", len); */
-	/* len = _printf("%p\n", NULL); */
-	/* printf("%d\n", len); */
-	
-	_printf("%x\n", &len);
-	printf("%x\n", &len);
+	print_width(parse_argument("#123.3434l"));
+	_putchar('\n');
+	print_width(parse_argument("0123.3434h"));
 
 	return 0;
 }

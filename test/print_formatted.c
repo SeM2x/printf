@@ -8,10 +8,10 @@
  * Return: number of printed chars
  */
 
-int  print_formatted(char format, va_list args)
+int  print_formatted(char format, va_list args, WIDTH *w)
 {
 	int len, c;
-
+	
 	len = 0;
 	switch (format)
 	{
@@ -50,4 +50,6 @@ int  print_formatted(char format, va_list args)
 			_putchar(format);
 			return (len + 1);
 	}
+
+	w->length += 0;
 }

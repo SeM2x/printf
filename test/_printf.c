@@ -11,6 +11,7 @@ int _printf(char *template, ...)
 {
 	va_list args;
 	int current_letter, len;
+	WIDTH *padding_info; /* necessary for padding */
 
 	if (template == NULL)
 		return (-1);
@@ -26,7 +27,8 @@ int _printf(char *template, ...)
 			case '%':
 				if (template[current_letter + 1] != '\0')
 				{
-					len += print_formatted(template[current_letter + 1], args);
+					padding_info = parse_argument(&template[current_letter + 1]);
+					len += print_formatted(template[current_letter + 1], args, padding_info);
 					current_letter++;
 				}
 				else
