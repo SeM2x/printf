@@ -12,9 +12,13 @@ int main(void)
 {
 	int len;
 
-	len = printf("%p\n", NULL);
-	printf("%d\n", len);
-	len = _printf("%p\n", NULL);
-	printf("%d\n", len);
+	/* len = printf("%p\n", NULL); */
+	/* printf("%d\n", len); */
+	/* len = _printf("%p\n", NULL); */
+	/* printf("%d\n", len); */
+	
+	_printf("%x\n", &len);
+	printf("%x\n", &len);
+
 	return 0;
 }
