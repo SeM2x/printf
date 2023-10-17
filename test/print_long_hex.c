@@ -9,24 +9,20 @@
  */
 int print_long_hex(unsigned long int num)
 {
-  char mod, *hexchars;
-  unsigned int base;
-  
-  base = 16;
-  hexchars = strdup("abcdef");
+	char mod, *hexchars;
 
-  if (num < base)
-  {
-    if (num > 9)
-      mod = hexchars[num - 10];
-    else
-      mod = num % base + '0';
-    putchar(mod);
-    return (1);
-  }
-
-  return (
-    print_long_hex(num / base) +
-    print_long_hex(num % base)
-  );
+	hexchars = strdup("abcdef");
+	if (num < 16)
+	{
+		if (num > 9)
+			mod = hexchars[num - 10];
+		else
+			mod = num % 16 + '0';
+		putchar(mod);
+		return (1);
+	}
+	return (
+		print_long_hex(num / 16) +
+		print_long_hex(num % 16)
+	);
 }

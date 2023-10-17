@@ -7,7 +7,7 @@
  *
  *Return: number of printed chars.
  */
-int print_base_x(unsigned int num, unsigned int base, ...)
+int print_base_x(unsigned long int num, unsigned int base, ...)
 {
 	va_list args;
 	char mod, *hexchars, format;
