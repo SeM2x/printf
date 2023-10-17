@@ -38,6 +38,7 @@ typedef struct FLOAT FLOAT;
  * struct WIDTH - FLOAT
  * @field: the width of the whole field
  * @fractional: the precision of the fractional par
+ * @length: the num of chars in width/precision
  *
  * Description: tells print_int and print_f about the width
 */
@@ -46,6 +47,8 @@ struct WIDTH
 {
 	int field;
 	int fractional;
+	int length;
+	char flag;
 };
 
 typedef struct WIDTH WIDTH;
@@ -67,4 +70,7 @@ int dec_to_hex(unsigned long decimalnum);
 int print_address(void *addr);
 int print_long_hex(unsigned long int num);
 WIDTH *parse_argument(char *template);
+int str_to_int(char *str);
+int is_digit(char c);
+int str_contains(char *stack, char needle);
 #endif
