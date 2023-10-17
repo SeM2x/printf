@@ -76,4 +76,6 @@ int is_digit(char c);
 int str_contains(char *stack, char needle);
 void print_width(WIDTH *w);
 int handle_flag(char flag, ...);
+int print_reverse(char *str);
+int print_rot13(char *str);
 #endif
