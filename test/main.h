@@ -48,7 +48,7 @@ struct WIDTH
 	int field;
 	int fractional;
 	int length;
-	char flag;
+	char *flags;
 	char modifier;
 };
 

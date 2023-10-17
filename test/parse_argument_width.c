@@ -4,8 +4,9 @@
  * parse_argument - extract width and height from template
  * Return: a WIDTH struct
  */
-#define length_modifiers "hl"
-#define flags "-+ #0"
+char length_modifiers[] = "hl";
+char flags[]  = "-+ #0";
+int temp_num_flags = 1024;
 
 WIDTH *parse_argument(char *template)
 {
@@ -20,16 +21,19 @@ WIDTH *parse_argument(char *template)
     result = malloc(sizeof(WIDTH));
     result->field = 0;
     result->fractional = 0;
+    result->flags = malloc(sizeof(char) * temp_num_flags);
 
     length = 0; /* length is to count chars in %[here]f */
 
     /* extracting the flag */
-    if (str_contains(flags, *template))
+    while (str_contains(flags, *template))
     {
-        result->flag = *template;
+        result->flags[length] = *template;
         length++;
         template++;
     }
+
+    result->flags[length] = '\0'; /*seal the thing once and for all!*/
 
     for (i = 0; *template != '.' && (is_digit(*template) || str_contains(length_modifiers, *template)); template++)
     {
