@@ -10,13 +10,14 @@
 
 int  print_formatted(char format, va_list args)
 {
-	int len;
+	int len, c;
 
 	len = 0;
 	switch (format)
 	{
 		case 'c':
-			_putchar(va_arg(args, int));
+			c = va_arg(args, int);
+			_putchar(c);
 			return (1);
 		case 'd':
 			return (print_int(va_arg(args, int)));

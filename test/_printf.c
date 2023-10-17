@@ -24,11 +24,13 @@ int _printf(char *template, ...)
 		switch (template[current_letter])
 		{
 			case '%':
-				if (*(template + 1) != '\0')
+				if (template[current_letter + 1] != '\0')
 				{
 					len += print_formatted(template[current_letter + 1], args);
 					current_letter++;
 				}
+				else
+					return (-1);
 				break;
 
 			default:
