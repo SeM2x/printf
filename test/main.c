@@ -9,24 +9,10 @@
  */
 int main(void)
 {
-	void *addr;
-	int len;
-	addr = (void *) 0x7ffe637541f0;
-	_printf("Address:[%x]\n", addr);
-	printf("Address:[%p]\n", addr);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
-	len = _printf(NULL);
-	_printf("%d", len);
-	len = printf(NULL);
-	_printf("%d", len);
-	len = _printf("");
-	_printf("%d", len);
-	len = printf("");
-	_printf("%d", len);
-	len = _printf("\0");
-	_printf("%d", len);
-	len = printf("\0");
-	_printf("%d", len);
+
+	_printf("%s", NULL);
+	_printf("%");
+	_printf("%!\n");
+	_printf("%K\n");
 	return (0);
 }

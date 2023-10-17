@@ -24,8 +24,14 @@ int _printf(char *template, ...)
 		switch (template[current_letter])
 		{
 			case '%':
-				len += print_formatted(template[current_letter + 1], args);
-				current_letter++;
+				if (
+					template[current_letter + 1] != ' ' && 
+					template[current_letter + 1] != '\0'
+				)
+				{
+					len += print_formatted(template[current_letter + 1], args);
+					current_letter++;
+				}
 				break;
 
 			default:

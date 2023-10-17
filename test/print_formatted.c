@@ -44,7 +44,8 @@ int  print_formatted(char format, va_list args)
 			return (print_base_x(va_arg(args, unsigned int), 16, 'X'));
 
 		default:
+			_putchar('%');
 			_putchar(format);
-			return (1);
+			return (2);
 	}
 }

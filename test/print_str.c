@@ -12,7 +12,7 @@ int print_str(char *s)
 
 	len = 0;
 	if (!s)
-		return (0);
+		return (_printf("(null)"));
 
 	for (; *s; s++)
 	{
