@@ -11,7 +11,9 @@ int _printf(char *template, ...)
 {
 	va_list args;
 	int current_letter, len;
-
+	
+	if (template == NULL)
+		return (-1);
 	va_start(args, template);
 
 	current_letter = 0;
