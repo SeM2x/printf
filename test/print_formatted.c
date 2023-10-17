@@ -40,10 +40,7 @@ int  print_formatted(char format, va_list args)
 		case 'S':
 			return (print_custom_str(va_arg(args, char*)));
 		case 'p':
-			return (
-				_printf("0x") + 
-				print_base_x((unsigned long)va_arg(args, void *), 16)
-			);
+			return (print_address(va_arg(args, void *)));
 		default:
 			if (format != '%')
 			{

@@ -12,8 +12,9 @@ int main(void)
 {
 	int len;
 
-	printf("%x\n", 12365);	
-	_printf("%x\n", 12365);
-	_printf("\n%p\n", &len);
+	len = printf("%p\n", NULL);
+	printf("%d\n", len);
+	len = _printf("%p\n", NULL);
+	printf("%d\n", len);
 	return 0;
 }
