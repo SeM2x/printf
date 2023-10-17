@@ -8,21 +8,25 @@
  * Return: number of printed chars
  */
 
-int  print_formatted(char format, va_list args, WIDTH *w)
+int print_formatted(char format, va_list args, WIDTH *w)
 {
-	int len, c;
+	int len, val;
 	
 	len = 0;
 	switch (format)
 	{
 		case 'c':
-			c = va_arg(args, int);
-			_putchar(c);
+			val = va_arg(args, int);
+			_putchar(val);
 			return (1);
 		case 'd':
-			return (print_int(va_arg(args, int)));
+			val = va_arg(args, int);
+			return (
+				handle_flag(w->flag, val) + 
+				print_int(val)
+				);
 		case 'i':
-			return (print_int(va_arg(args, int)));
+			return(print_formatted('d', args, w));
 		case 'u':
 			return (print_uns_int(va_arg(args, unsigned int)));
 		case 'f':
@@ -32,11 +36,14 @@ int  print_formatted(char format, va_list args, WIDTH *w)
 		case 'b':
 			return (print_base_x(va_arg(args, unsigned int), 2));
 		case 'o':
-			return (print_base_x(va_arg(args, unsigned int), 8));
+			val = va_arg(args, unsigned int);
+			return (print_base_x(val, 8));
 		case 'x':
-			return (print_base_x(va_arg(args, unsigned int), 16));
+			val = va_arg(args, unsigned int);
+			return (handle_flag(w->flag, 'x') + print_base_x(val, 16));
 		case 'X':
-			return (print_base_x(va_arg(args, unsigned int), 16, 'X'));
+			val = va_arg(args, unsigned int);
+			return (handle_flag(w->flag, 'X') + print_base_x(val, 16, 'X'));
 		case 'S':
 			return (print_custom_str(va_arg(args, char*)));
 		case 'p':
@@ -50,6 +57,4 @@ int  print_formatted(char format, va_list args, WIDTH *w)
 			_putchar(format);
 			return (len + 1);
 	}
-
-	w->length += 0;
 }

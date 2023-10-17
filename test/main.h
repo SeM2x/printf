@@ -56,7 +56,7 @@ typedef struct WIDTH WIDTH;
 
 int raise(int, int);
 int _printf(char *template, ...);
-int print_int(int num);
+int print_int(int num, ...);
 int print_uns_int(unsigned int num);
 int print_float(FLOAT *f);
 FLOAT *dissect_float(float f, int precision);
@@ -65,7 +65,7 @@ int print_str(char *s);
 int print_custom_str(char *s);
 int print_base_x(unsigned long int num, unsigned int base, ...);
 int print_base_x2(void *addr, unsigned int base, ...);
-int  print_formatted(char format, va_list args, WIDTH *w);
+int print_formatted(char format, va_list args, WIDTH *w);
 int _putchar(char c);
 int dec_to_hex(unsigned long decimalnum);
 int print_address(void *addr);
@@ -75,4 +75,5 @@ int str_to_int(char *str);
 int is_digit(char c);
 int str_contains(char *stack, char needle);
 void print_width(WIDTH *w);
+int handle_flag(char flag, ...);
 #endif
