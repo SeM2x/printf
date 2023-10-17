@@ -13,5 +13,5 @@ void print_address(void *addr)
 
 	_printf("0x");	
 	
-	dec_to_hex(l);	
+	print_long_hex(l);
 }

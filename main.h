@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
+#include <stdio.h>
 /**
  * struct info - info
  * @type: type
@@ -41,6 +41,7 @@ int print_float(FLOAT *f);
 FLOAT *dissect_float(float f, int precision);
 int count_exponent(int number, int exponent);
 int print_str(char *s);
+int print_custom_str(char *s);
 int print_base_x(unsigned int num, unsigned int base, ...);
 int print_formatted(char format, va_list args);
 int _putchar(char c);
