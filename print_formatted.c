@@ -42,8 +42,6 @@ int  print_formatted(char format, va_list args)
 
 		case 'X':
 			return (print_base_x(va_arg(args, unsigned int), 16, 'X'));
-		case 'p':
-			return (print_base_x(va_arg(args, void *), 16));
 
 		default:
 			_putchar(format);
