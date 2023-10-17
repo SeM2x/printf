@@ -37,13 +37,13 @@ int print_formatted(char format, va_list args, WIDTH *w)
 			return (print_base_x(va_arg(args, unsigned int), 2));
 		case 'o':
 			val = va_arg(args, unsigned int);
-			return (print_base_x(val, 8));
+			return (handle_flag(w->flag, val, 'o') + print_base_x(val, 8));
 		case 'x':
 			val = va_arg(args, unsigned int);
-			return (handle_flag(w->flag, 'x') + print_base_x(val, 16));
+			return (handle_flag(w->flag, val, 'x') + print_base_x(val, 16));
 		case 'X':
 			val = va_arg(args, unsigned int);
-			return (handle_flag(w->flag, 'X') + print_base_x(val, 16, 'X'));
+			return (handle_flag(w->flag, val, 'X') + print_base_x(val, 16, 'X'));
 		case 'S':
 			return (print_custom_str(va_arg(args, char*)));
 		case 'p':

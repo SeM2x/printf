@@ -17,7 +17,7 @@ int handle_flag(char flag, ...)
 	if (flag == ' ' || flag == '+')
 	{
 		num = va_arg(args, int);
-		if (num > 0)
+		if (num >= 0)
 		{
 			_putchar(flag);
 			len++;
@@ -25,11 +25,17 @@ int handle_flag(char flag, ...)
 	}
 	else if (flag == '#')
 	{
+		num = va_arg(args, unsigned int);
 		format = va_arg(args, int);
-		if (format == 'X')
-			len += _printf("0X");
-		else
-			len += _printf("0x");
+		if (num > 0)
+		{
+			if (format == 'X')
+				len += _printf("0X");
+			else if (format == 'x')
+				len += _printf("0x");
+			else if(format == 'o')
+				len += _printf("0");
+		}
 	}
 
 	va_end(args);
