@@ -25,7 +25,12 @@ int print_custom_str(char *s)
 		{
 			_putchar('\\');
 			_putchar('x');
-			len += 2;
+			if (*s < 16)
+			{
+				_putchar('0');
+				len++;
+			}
+			len += 2 + _printf("%X", *s);
 		}
 	}
 
