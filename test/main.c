@@ -10,7 +10,7 @@
 int main(void)
 {
 
-	_printf("%s", NULL);
+	_printf("%%");
 	_printf("%");
 	_printf("%!\n");
 	_printf("%K\n");

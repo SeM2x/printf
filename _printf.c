@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print -our own printf
+ * _printf - our own printf
  * @template: str, template according to which we print the args
  *
  * Return: number of chars printed.
@@ -11,7 +11,7 @@ int _printf(char *template, ...)
 {
 	va_list args;
 	int current_letter, len;
-	
+
 	if (template == NULL)
 		return (-1);
 	va_start(args, template);
@@ -25,7 +25,7 @@ int _printf(char *template, ...)
 		{
 			case '%':
 				if (
-					template[current_letter + 1] != ' ' && 
+					template[current_letter + 1] != ' ' &&
 					template[current_letter + 1] != '\0'
 				)
 				{
