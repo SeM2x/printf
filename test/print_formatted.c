@@ -10,6 +10,9 @@
 
 int  print_formatted(char format, va_list args)
 {
+	int len;
+
+	len = 0;
 	switch (format)
 	{
 		case 'c':
@@ -46,8 +49,11 @@ int  print_formatted(char format, va_list args)
 		default:
 
 			if (format != '%')
+			{
 				_putchar('%');
+				len++;
+			}
 			_putchar(format);
-			return (2);
+			return (len + 1);
 	}
 }
