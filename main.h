@@ -56,7 +56,7 @@ typedef struct WIDTH WIDTH;
 
 int raise(int, int);
 int _printf(char *template, ...);
-int print_int(int num, ...);
+int print_int(int num);
 int print_uns_int(unsigned int num);
 int print_float(FLOAT *f);
 FLOAT *dissect_float(float f, int precision);
