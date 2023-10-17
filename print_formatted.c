@@ -37,6 +37,8 @@ int  print_formatted(char format, va_list args)
 			return (print_base_x(va_arg(args, unsigned int), 16));
 		case 'X':
 			return (print_base_x(va_arg(args, unsigned int), 16, 'X'));
+		case 'S':
+			return (print_custom_str(va_arg(args, char*)));
 		default:
 			if (format != '%')
 			{
