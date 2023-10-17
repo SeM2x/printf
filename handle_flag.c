@@ -11,7 +11,6 @@ int handle_flag(char flag, ...)
 	int num, len;
 	char format;
 
-	printf("flag: %c\n", flag);
 	va_start(args, flag);
 	len = 0;
 

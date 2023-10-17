@@ -11,7 +11,6 @@ int handle_flag(char flag, ...)
 	int num, len;
 	char format;
 
-	printf("flag: %c\n", flag);
 	va_start(args, flag);
 	len = 0;
 
@@ -26,11 +25,13 @@ int handle_flag(char flag, ...)
 	}
 	else if (flag == '#')
 	{
-		format = va_arg(args, int);
+		format = va_arg(args, unsigned int);
 		if (format == 'X')
 			len += _printf("0X");
-		else
+		else if (format == 'x')
 			len += _printf("0x");
+		else if(format == 'o')
+			len += _printf("0");
 	}
 
 	va_end(args);
