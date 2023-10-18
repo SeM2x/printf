@@ -3,6 +3,8 @@
 /**
  * print_address - print address to mimic %p in printf
  * @addr: a void *
+ *
+ * Return: number of printed characters
  */
 int print_address(void *addr)
 {

@@ -2,7 +2,7 @@
 
 /**
  * handle_flag - handles flag
- *@flag: flag to handle
+ *@flags: flags to handle
  *
  *Return: number of pinted characters.
  */
@@ -11,9 +11,7 @@ int handle_flag(char *flags, ...)
 	va_list args;
 	int num, len, i;
 	unsigned int uns;
-	char format;
-	char default_flags[] = "-+ #0";
-	char flag; 
+	char format, flag, default_flags[] = "-+ #0";
 
 	va_start(args, flags);
 	format = va_arg(args, int);
@@ -24,7 +22,6 @@ int handle_flag(char *flags, ...)
 		if (get_index(default_flags, flags[i]) < get_index(default_flags, flag))
 			flag = flags[i];
 	}
-
 	if ((flag == ' ' || flag == '+') && format == 'd')
 	{
 		num = va_arg(args, int);
@@ -47,8 +44,6 @@ int handle_flag(char *flags, ...)
 				len += _printf("0");
 		}
 	}
-
 	va_end(args);
-
 	return (len);
 }

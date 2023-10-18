@@ -45,5 +45,5 @@ int print_rot13(char *str)
 		}
 	}
 
-	return(1 + print_rot13(str + 1));
+	return (1 + print_rot13(str + 1));
 }

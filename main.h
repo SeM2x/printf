@@ -39,6 +39,8 @@ typedef struct FLOAT FLOAT;
  * @field: the width of the whole field
  * @fractional: the precision of the fractional par
  * @length: the num of chars in width/precision
+ * @flags: flags
+ * @modifier: modifier
  *
  * Description: tells print_int and print_f about the width
 */
