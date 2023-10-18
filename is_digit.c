@@ -1,6 +1,7 @@
 #include "main.h"
 
-/** is_digit - 
+/**
+ * is_digit - hhhh
  * @c: the char
  * Return: 1 for true, 0 for false
  */
