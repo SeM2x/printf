@@ -1,6 +1,7 @@
 #include "main.h"
 
-/**handle_flag - handles flag
+/**
+ * handle_flag - handles flag
  *@flag: flag to handle
  *
  *Return: number of pinted characters.
@@ -33,7 +34,7 @@ int handle_flag(char flag, ...)
 				len += _printf("0X");
 			else if (format == 'x')
 				len += _printf("0x");
-			else if(format == 'o')
+			else if (format == 'o')
 				len += _printf("0");
 		}
 	}
