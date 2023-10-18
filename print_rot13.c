@@ -10,6 +10,8 @@
 
 int print_rot13(char *str)
 {
+	if (str == NULL)
+		return (_printf("(null)"));
 	if (!*str)
 		return (0);
 

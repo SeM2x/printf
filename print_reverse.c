@@ -11,6 +11,8 @@ int print_reverse(char *str)
 {
 	int i, length = 0;
 
+	if (str == NULL)
+		return (_printf("(null)"));
 	while (str[length] != '\0')
 	{
 		length++;
