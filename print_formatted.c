@@ -5,7 +5,6 @@
  *print_formatted_part2 - continuation of print_formatted
  *@format: char representing format/type (int char float ...)
  *@args: a va_list variable
- *@w: w
  *
  *Return: number of printed chars
  */
