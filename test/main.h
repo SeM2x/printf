@@ -78,4 +78,5 @@ void print_width(WIDTH *w);
 int handle_flag(char flag, ...);
 int print_reverse(char *str);
 int print_rot13(char *str);
+void print_rot13(char *str);
 #endif
