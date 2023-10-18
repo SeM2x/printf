@@ -3,7 +3,7 @@
 /**
  * str_to_int - calls atoi
  * @str: the string
- * @Return: int
+ * Return: int
  */
 
 int str_to_int(char *str)

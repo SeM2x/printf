@@ -1,6 +1,7 @@
 #include "main.h"
 
-/**handle_flag - handles flag
+/**
+ * handle_flag - handles flag
  *@flag: flag to handle
  *
  *Return: number of pinted characters.

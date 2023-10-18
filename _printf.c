@@ -29,8 +29,7 @@ int _printf(char *template, ...)
 				{
 					padding_info = parse_argument(&template[current_letter + 1]);
 					len += print_formatted(
-							template[current_letter + 1 + 
-							padding_info->length], args, padding_info
+							template[current_letter + 1 +	padding_info->length], args, padding_info
 							);
 					current_letter += padding_info->length + 1;
 				}
