@@ -22,7 +22,7 @@ int print_formatted(char format, va_list args, WIDTH *w)
 		case 'd':
 			val = va_arg(args, int);
 			return (
-				handle_flag(w->flag, val) + 
+				handle_flag(w->flags, 'd', val) + 
 				print_int(val)
 				);
 		case 'i':
@@ -37,21 +37,17 @@ int print_formatted(char format, va_list args, WIDTH *w)
 			return (print_base_x(va_arg(args, unsigned int), 2));
 		case 'o':
 			val = va_arg(args, unsigned int);
-			return (handle_flag(w->flag, val, 'o') + print_base_x(val, 8));
+			return (handle_flag(w->flags, 'o', val) + print_base_x(val, 8));
 		case 'x':
 			val = va_arg(args, unsigned int);
-			return (handle_flag(w->flag, val, 'x') + print_base_x(val, 16));
+			return (handle_flag(w->flags, 'x', val) + print_base_x(val, 16));
 		case 'X':
 			val = va_arg(args, unsigned int);
-			return (handle_flag(w->flag, val, 'X') + print_base_x(val, 16, 'X'));
+			return (handle_flag(w->flags, 'X', val) + print_base_x(val, 16, 'X'));
 		case 'S':
 			return (print_custom_str(va_arg(args, char*)));
 		case 'p':
 			return (print_address(va_arg(args, void *)));
-		case 'r':
-			return (print_reverse(va_arg(args, char*)));
-		case 'R':
-			return (print_rot13(va_arg(args, char*)));
 		default:
 			if (format != '%')
 			{

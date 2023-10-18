@@ -6,15 +6,8 @@
  *
  *Return: number of printed chars.
  */
-int print_int(int n, ...)
+int print_int(int n)
 {
-	int flag;
-	va_list args;
-	va_start(args, n);
-
-	flag = va_arg(args, int);
-	if (flag == '+' || flag == ' ')
-		return (handle_flag(flag, n) + print_int(n, 0));
 	if (n < 0)
 	{
 		_putchar('-');

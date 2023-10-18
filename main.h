@@ -48,7 +48,7 @@ struct WIDTH
 	int field;
 	int fractional;
 	int length;
-	char flag;
+	char *flags;
 	char modifier;
 };
 
@@ -75,5 +75,8 @@ int str_to_int(char *str);
 int is_digit(char c);
 int str_contains(char *stack, char needle);
 void print_width(WIDTH *w);
-int handle_flag(char flag, ...);
+int handle_flag(char *flags, ...);
+int print_reverse(char *str);
+int print_rot13(char *str);
+int get_index(const char *str, char target);
 #endif
