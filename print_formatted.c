@@ -48,6 +48,10 @@ int print_formatted(char format, va_list args, WIDTH *w)
 			return (print_custom_str(va_arg(args, char*)));
 		case 'p':
 			return (print_address(va_arg(args, void *)));
+		case 'r':
+			return (print_reverse(va_arg(args, char*)));
+		case 'R':
+			return (print_rot13(va_arg(args, char*)));
 		default:
 			if (format != '%')
 			{
